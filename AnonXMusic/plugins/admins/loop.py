@@ -8,13 +8,15 @@ from AnonXMusic.utils.inline import close_markup
 from config import BANNED_USERS
 
 
-@app.on_message(filters.command(["loop", "cloop"]) & filters.group & ~BANNED_USERS)
+@app.on_message(command(["التكرار", "تكرار"]) & ~BANNED_USERS)
 @AdminRightsCheck
 async def admins(cli, message: Message, _, chat_id):
-    usage = _["admin_17"]
-    if len(message.command) != 2:
-        return await message.reply_text(usage)
+    if len(message.command) > 2:
+        return
+    if "تكرار تفعيل" not in message.command or "تكرار تعطيل" not in message.command or "التكرار تفعيل" not in message.command or "التكرار تعطيل" not in message.command:
+        return
     state = message.text.split(None, 1)[1].strip()
+    user_mention = message.from_user.mention if message.from_user else "المشـرف"
     if state.isnumeric():
         state = int(state)
         if 1 <= state <= 10:
@@ -25,22 +27,22 @@ async def admins(cli, message: Message, _, chat_id):
                 state = 10
             await set_loop(chat_id, state)
             return await message.reply_text(
-                text=_["admin_18"].format(state, message.from_user.mention),
+                text=_["admin_18"].format(state, user_mention),
                 reply_markup=close_markup(_),
             )
         else:
             return await message.reply_text(_["admin_17"])
-    elif state.lower() == "enable":
+    elif state.lower() == "تفعيل":
         await set_loop(chat_id, 10)
         return await message.reply_text(
-            text=_["admin_18"].format(state, message.from_user.mention),
+            text=_["admin_18"].format(state, user_mention),
             reply_markup=close_markup(_),
         )
-    elif state.lower() == "disable":
+    elif state.lower() == "تعطيل":
         await set_loop(chat_id, 0)
         return await message.reply_text(
-            _["admin_19"].format(message.from_user.mention),
+            _["admin_19"].format(user_mention),
             reply_markup=close_markup(_),
         )
     else:
-        return await message.reply_text(usage)
+        return
