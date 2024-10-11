@@ -8,10 +8,10 @@ load_dotenv()
 
 # Get this value from my.telegram.org/apps
 API_ID = int(getenv("API_ID", "9671629"))
-API_HASH = getenv("API_HASH")
+API_HASH = getenv("API_HASH", "be5c84e9dc1ca0e2b53d54b71e575124")
 
 # Get your token from @BotFather on Telegram.
-BOT_TOKEN = getenv("BOT_TOKEN")
+BOT_TOKEN = getenv("7632141884:AAHXFitNZ_aTMgeQf3_521rsGSMzGLUxhLQ")
 
 # Get your mongo url from cloud.mongodb.com
 MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://Anubarlo:Anubarlo@cluster0.ioiefbq.mongodb.net/?retryWrites=true&w=majority")
