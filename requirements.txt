@@ -7,14 +7,14 @@ ffmpeg-python
 gitpython
 hachoir
 heroku3
-motor
-pillow
+motor==3.3.2
+pillow==9.5.0
 psutil
 py-tgcalls==0.9.7
 pykeyboard
 pyrofork
 python-dotenv
-pyyaml
+pyyaml==6.0.1
 requests
 speedtest-cli
 spotipy
