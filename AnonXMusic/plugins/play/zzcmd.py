@@ -4,8 +4,8 @@ from strings.filters import command
 from pyrogram.types import InlineKeyboardButton, CallbackQuery, InlineKeyboardMarkup, Message
 from typing import Union
 from pyrogram.types import InlineKeyboardButton
-from ZelzalMusic import app
-from ZelzalMusic.misc import HAPP, SUDOERS, XCB
+from AnonXMusic import app
+from AnonXMusic.misc import HAPP, SUDOERS, XCB
 from config import OWNER_ID
                                        
                                        
