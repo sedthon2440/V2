@@ -10,8 +10,7 @@ from config import BANNED_USERS
 
 
 @app.on_message(
-    filters.command(["seek", "cseek", "seekback", "cseekback"])
-    & filters.group
+    command(["تقدم", "cseek", "seekback", "cseekback"])
     & ~BANNED_USERS
 )
 @AdminRightsCheck
