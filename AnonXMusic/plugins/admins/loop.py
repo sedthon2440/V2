@@ -5,6 +5,8 @@ from AnonXMusic import app
 from AnonXMusic.utils.database import get_loop, set_loop
 from AnonXMusic.utils.decorators import AdminRightsCheck
 from AnonXMusic.utils.inline import close_markup
+
+from AnonXMusic.plugins.play.filters import command
 from config import BANNED_USERS
 
 
