@@ -8,13 +8,13 @@ from AnonXMusic.utils.decorators.admins import AdminActual
 from config import BANNED_USERS
 
 
-@app.on_message(filters.command(["channelplay"]) & filters.group & ~BANNED_USERS)
+@app.on_message(command(["/channelplay", "ربط"]) & filters.group & ~BANNED_USERS)
 @AdminActual
 async def playmode_(client, message: Message, _):
     if len(message.command) < 2:
         return await message.reply_text(_["cplay_1"].format(message.chat.title))
     query = message.text.split(None, 2)[1].lower().strip()
-    if (str(query)).lower() == "disable":
+    if (str(query)).lower() == "تعطيل":
         await set_cmode(message.chat.id, None)
         return await message.reply_text(_["cplay_7"])
     elif str(query) == "linked":
